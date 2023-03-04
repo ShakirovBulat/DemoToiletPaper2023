@@ -29,6 +29,10 @@ namespace DemoToiletPaper2023.Pages
             {
                 TypeCB.ItemsSource = db.TypeProd.ToList();
             }
+            foreach (var serv in ProductListWindow.db.Material)
+            {
+                MaterialCB.ItemsSource = db.Material.ToList();
+            }
         }
 
         private void btn_Image_Click(object sender, RoutedEventArgs e)
@@ -60,27 +64,36 @@ namespace DemoToiletPaper2023.Pages
 
         private void btn_Create_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTB.Text == "" || PriceTB.Text == "" || TypeCB.Text == "" || MaterialTB.Text == "" || ArticleTB.Text == "")
+            if (NameTB.Text == "" || PriceTB.Text == "" || TypeCB.Text == "" || ArticleTB.Text == "")
             {
                 MessageBox.Show("Введите ваши данные!");
             }
             else
             {
-                Product prod = new Product();
+                try
+                {
+                    Product prod = new Product();
 
-                prod.Name = NameTB.Text;
-                prod.MinCostForAgent = Convert.ToInt32(PriceTB.Text);
-                prod.Id_Material = Convert.ToInt32(MaterialTB.Text);
-                prod.Id_Prod = Convert.ToInt32(ArticleTB.Text);
-                var TypeName = TypeCB.SelectedItem;
-                var temp = ((TypeProd)TypeName).Id;
+                    prod.Name = NameTB.Text;
+                    prod.MinCostForAgent = Convert.ToInt32(PriceTB.Text);
+                    var TypeName1 = MaterialCB.SelectedItem;
+                    var temp1 = ((Material)TypeName1).id;
+                    prod.Id_Material = temp1;
+                    prod.Id_Prod = Convert.ToInt32(ArticleTB.Text);
+                    var TypeName = TypeCB.SelectedItem;
+                    var temp = ((TypeProd)TypeName).Id;
+                    prod.Id_Type = temp;
+                    prod.Count = Convert.ToInt32(CountTB.Text);
 
-                prod.Id_Type = temp;
-
-                prod.Picture = File.ReadAllBytes(ofdImage.FileName);
-                db.Product.Add(prod);
-                db.SaveChanges();
-                MessageBox.Show("Complete");
+                    prod.Picture = File.ReadAllBytes(ofdImage.FileName);
+                    db.Product.Add(prod);
+                    db.SaveChanges();
+                    MessageBox.Show("Complete");
+                }
+                catch
+                {
+                    MessageBox.Show("Не корректные данные!");
+                }
 
             }
         }
@@ -89,7 +102,6 @@ namespace DemoToiletPaper2023.Pages
         {
             NameTB.Clear();
             PriceTB.Clear();
-            MaterialTB.Clear();
             ArticleTB.Clear();
             BitmapImage image = new BitmapImage();
             image.Freeze();
@@ -100,6 +112,24 @@ namespace DemoToiletPaper2023.Pages
         {
             var typeName = ((TypeProd)TypeCB.SelectedItem).Id;
             var type = ProductListWindow.db.TypeProd.Where(x => x.Id == typeName).FirstOrDefault();
+        }
+
+        private void MaterialCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var typeName = ((Material)MaterialCB.SelectedItem).id;
+            var type = ProductListWindow.db.Material.Where(x => x.id == typeName).FirstOrDefault();
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+            ProductListWindow productList = new ProductListWindow();
+            productList.Show();
+            this.Close();
+        }
+
+        private void CountTB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }

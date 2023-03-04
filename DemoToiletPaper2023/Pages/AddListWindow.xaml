@@ -132,20 +132,6 @@
                    Grid.Column="2" Grid.Row="0"
                    FontFamily="Gabriola"/>
 
-        <TextBox x:Name="MaterialTB" BorderBrush="Black" Background="#CEFFF9"
-                 BorderThickness="2" HorizontalAlignment="Center" AcceptsReturn="True" 
-                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="10"
-                 Grid.Column="2" Grid.Row="1" Width="145" Height="24" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.17"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="14" 
                    VerticalAlignment="Bottom" Text="Артикул"
                    Grid.Column="1" Grid.Row="2"
@@ -162,10 +148,43 @@
                   Grid.Column="1" Grid.Row="2" Width="149" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Background="White" x:Name="TypeProd_Name" Text="{Binding Id}"/>
+                    <TextBlock Background="White" x:Name="TypeProd_Name" Text="{Binding NameType}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <ComboBox x:Name="MaterialCB"  SelectionChanged="MaterialCB_SelectionChanged" 
+            HorizontalAlignment="Center" VerticalAlignment="Top" Background="#CEFFF9" 
+            Grid.Column="2" Width="148" Grid.Row="1" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Background="White" x:Name="TypeProd_Name" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="BackBTN" Content="Назад"
+            Click="BackBTN_Click"
+            Grid.Column="3" Grid.Row="4"
+            VerticalAlignment="Top" HorizontalAlignment="Center"
+            FontFamily="Gabriola" Margin="0,28,0,0">
+            <Button.Template>
+                <ControlTemplate  TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle RadiusX="5" RadiusY="5" Fill="#00CC76" Stroke="Black" StrokeThickness="2" />
+                        <Label Content="{TemplateBinding Content}"   Foreground="White" HorizontalAlignment="Center"
+                            VerticalAlignment="Center" FontSize="20"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" 
+            TextWrapping="Wrap" Text="Количество" 
+            FontSize="14" Grid.Column="2" Grid.Row="2"
+            FontFamily="Gabriola" Margin="55,85,0,0" Grid.RowSpan="2"/>
+        <TextBox x:Name="CountTB" BorderBrush="Black"  BorderThickness="2" 
+            HorizontalAlignment="Left" FontSize="14" Background="#CEFFF9" 
+            TextWrapping="Wrap"  VerticalAlignment="Top" 
+            PreviewTextInput="CountTB_PreviewTextInput"
+            Grid.Column="2" Grid.Row="3" Width="143" Margin="10,2,0,0"/>
 
     </Grid>
 </Window>
