@@ -120,10 +120,12 @@
                 Click="btn_add_Click" Background="#00CC76" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Grid.Column="1" Grid.Row="2"
-                MinWidth="120" MinHeight="30"/>
+                MinWidth="120" MinHeight="30"
+                FontFamily="Gabriola"/>
         <Button x:Name="DelBTN" Content="Удалить"  
             Click="DelBTN_Click" Background="#00CC76" 
             HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"
-            MinWidth="120" MinHeight="30" Margin="320,0,0,0"/>
+            MinWidth="120" MinHeight="30" Margin="320,0,0,0"
+                FontFamily="Gabriola"/>
     </Grid>
 </Window>

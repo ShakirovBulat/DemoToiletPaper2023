@@ -5,20 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoToiletPaper2023.Pages"
         mc:Ignorable="d"
-        Title="InsertListWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="InsertListWindow" Height="450" Width="307" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="TypeTB" HorizontalAlignment="Left" Margin="97,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic"  Background="#00CC76"/>
-        <TextBox x:Name="ArtcileTB" HorizontalAlignment="Left" Margin="97,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic" Background="#00CC76"/>
-        <TextBox x:Name="CostTB" HorizontalAlignment="Left" Margin="97,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic" Background="#00CC76"/>
-        <TextBox x:Name="MaterialsTB" HorizontalAlignment="Left" Margin="97,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic" Background="#00CC76"/>
-        <TextBlock HorizontalAlignment="Left" Margin="97,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" Width="120" ><Run Language="ru-ru" Text="Тип продукта"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="97,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" ><Run Language="ru-ru" Text="Артикул"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="97,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" ><Run Language="ru-ru" Text="Стоимость"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="97,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" ><Run Text="Материал"/><Run Language="ru-ru" Text="ы"/></TextBlock>
-        <Button x:Name="SaveBtn" Content="Сохранить" HorizontalAlignment="Left" Background="#00CC76" FontFamily="Century Gothic" Margin="97,217,0,0" Foreground="#FFE9F9" VerticalAlignment="Top" Width="114" Click="SaveBtn_Click"/>
-        <TextBox x:Name="NameTB" HorizontalAlignment="Left" Margin="97,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Century Gothic"  Background="#00CC76" IsReadOnly="True"/>
-        <TextBlock HorizontalAlignment="Left" Margin="97,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Century Gothic" Width="120" ><Run Language="ru-ru" Text="Наименование"/></TextBlock>
-        <Button x:Name="ExitBtn" Content="Выйти" HorizontalAlignment="Left" Background="#00CC76" FontFamily="Century Gothic" Margin="97,248,0,0" Foreground="#FFE9F9" VerticalAlignment="Top" Width="114" Click="ExitBtn_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="286*"/>
+            <ColumnDefinition Width="119*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="TypeTB" HorizontalAlignment="Left" Margin="97,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Gabriola"  Background="#00CC76" Height="22"/>
+        <TextBox x:Name="ArtcileTB" HorizontalAlignment="Left" Margin="97,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Gabriola" Background="#00CC76" Height="22"/>
+        <TextBox x:Name="CostTB" HorizontalAlignment="Left" Margin="97,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Gabriola" Background="#00CC76" Height="22"/>
+        <TextBox x:Name="MaterialsTB" HorizontalAlignment="Left" Margin="97,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Gabriola" Background="#00CC76" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Gabriola" Width="120" Height="20" ><Run Language="ru-ru" Text="Тип продукта"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="97,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Gabriola" Height="20" Width="35" ><Run Language="ru-ru" Text="Артикул"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="97,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Gabriola" Height="20" Width="46" ><Run Language="ru-ru" Text="Стоимость"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="97,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Gabriola" Height="20" Width="47" ><Run Text="Материал"/><Run Language="ru-ru" Text="ы"/></TextBlock>
+        <Button x:Name="SaveBtn" Content="Сохранить" HorizontalAlignment="Left" Background="#00CC76" FontFamily="Gabriola" Margin="97,217,0,0" Foreground="#FFE9F9" VerticalAlignment="Top" Width="114" Click="SaveBtn_Click" Height="24"/>
+        <TextBox x:Name="NameTB" HorizontalAlignment="Left" Margin="97,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Gabriola"  Background="#00CC76" IsReadOnly="True" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Gabriola" Width="120" Height="20" ><Run Language="ru-ru" Text="Наименование"/></TextBlock>
+        <Button x:Name="ExitBtn" Content="Выйти" HorizontalAlignment="Left" Background="#00CC76" FontFamily="Gabriola" Margin="97,248,0,0" Foreground="#FFE9F9" VerticalAlignment="Top" Width="114" Click="ExitBtn_Click" Height="24"/>
 
     </Grid>
 </Window>
