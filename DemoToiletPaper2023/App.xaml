@@ -1,0 +1,9 @@
+﻿<Application x:Class="DemoToiletPaper2023.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DemoToiletPaper2023"
+             StartupUri=".xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
