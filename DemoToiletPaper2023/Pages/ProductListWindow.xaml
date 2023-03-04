@@ -29,12 +29,12 @@
 
         <ListView x:Name="PaperLst" Margin="20, 0, 20, 0"
                   Grid.Row="1" Grid.ColumnSpan="3" 
-                  Control.MouseDoubleClick="PaperLst_MouseDoubleClick" Background="#00CC76">
+                  Control.MouseDoubleClick="PaperLst_MouseDoubleClick" Background="#00CC76"
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1" Height="Auto" Width="Auto">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" IsEnabled="True">
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
                                 <Image  Height="80" Width="80" Margin="15" x:Name="PictureI" IsEnabled="True">
                                     <Image.Style>
