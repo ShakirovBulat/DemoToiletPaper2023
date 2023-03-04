@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Лопушок.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -103,6 +106,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddListWindow.xaml.cs">
+      <DependentUpon>AddListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InsertListWindow.xaml.cs">
+      <DependentUpon>InsertListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductListWindow.xaml.cs">
       <DependentUpon>ProductListWindow.xaml</DependentUpon>
     </Compile>
@@ -150,12 +159,22 @@
       <DependentUpon>ToiletPaper_dbEntities.edmx</DependentUpon>
       <LastGenOutput>ToiletPaper_dbEntities.cs</LastGenOutput>
     </Content>
+    <Resource Include="res\Stock.png" />
+    <Resource Include="Лопушок.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Pages\AddListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InsertListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProductListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

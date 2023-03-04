@@ -5,8 +5,125 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoToiletPaper2023.Pages"
         mc:Ignorable="d"
-        Title="ProductListWindow" Height="450" Width="800">
+        Title="ProductListWindow" MinHeight="600" MinWidth="900" Width="900" Height="600">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="1.5*"/>
+            <RowDefinition  Height="10*" />
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="SearchTB" 
+                 TextWrapping="Wrap" TextChanged="txtName_TextChanged" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Grid.Column="0"
+                 MinHeight="30" MinWidth="250" 
+                 Height="30" Width="400" 
+                 MaxHeight="120" MaxWidth="750"
+                 Background="#00CC76"/>
+
+        <ListView x:Name="PaperLst" Margin="20, 0, 20, 0"
+                  Grid.Row="1" Grid.ColumnSpan="3" 
+                  Control.MouseDoubleClick="PaperLst_MouseDoubleClick" Background="#00CC76">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Height="Auto" Width="Auto">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <Image  Height="80" Width="80" Margin="15" x:Name="PictureI" IsEnabled="True">
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="{Binding Picture}"/>
+                                            <Style.Triggers >
+                                                <DataTrigger Binding="{Binding Picture}" Value="{x:Null}">
+                                                    <Setter Property="Source" Value="/res/Stock.png"></Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </StackPanel>
+
+                            <StackPanel >
+                                <TextBlock Text="{Binding TypeProd.NameType}"/>
+                                <TextBlock Text="{Binding Id_Prod}"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Материалы:"/>
+                                    <TextBlock Margin="0,5,0,0" Text="{Binding Material.Name}"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5">
+                                <TextBlock Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Text="{Binding MinCostForAgent}"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Grid.Column="2" Grid.Row="2">
+            <Button x:Name="BLeft" 
+                    Background="White" BorderBrush="White"
+                    MinWidth="25" MinHeight="25" Margin="0, 5, 0, 5"
+                    Click="BLeft_Click" Content="&lt;"/>
+            <ScrollViewer MinHeight="30" MinWidth="100" Margin="5"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <WrapPanel  x:Name="WPButtons"/>
+            </ScrollViewer>
+            <Button x:Name="BRight" 
+                    Background="White" BorderBrush="White"
+                    Margin="0, 5, 0, 5" MinHeight="25" MinWidth="25"
+                    Click="BRight_Click" Content="&gt;" />
+        </WrapPanel>
+
+
+        <ComboBox x:Name="CBNumberWrite" SelectedIndex="0" 
+                  SelectionChanged="CBNumberWrite_SelectionChanged" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                  Visibility="Hidden"/>
+
+        <ComboBox x:Name="FilterCB"  Grid.Column="2"
+                  SelectionChanged="FilterCB_SelectionChanged"
+                  HorizontalAlignment="Center"  VerticalAlignment="Center" 
+                  MinHeight="20" MinWidth="180">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Background="White" x:Name="TypeProd_Name" Text="{Binding NameType}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox x:Name="SortCB"  Grid.Column="1"
+                  HorizontalAlignment="Center"  VerticalAlignment="Center" 
+                  MinHeight="20" MinWidth="180" SelectionChanged="SortCB_SelectionChanged">
+            <TextBlock Text="по цене(возрастание)"/>
+            <TextBlock Text="по цене(убывание)"/>
+        </ComboBox>
+
+        <Button x:Name="btn_add" Content="Добавить"  
+                Click="btn_add_Click" Background="#00CC76" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Grid.Column="1" Grid.Row="2"
+                MinWidth="120" MinHeight="30"/>
+        <Button x:Name="DelBTN" Content="Удалить"  
+            Click="DelBTN_Click" Background="#00CC76" 
+            HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"
+            MinWidth="120" MinHeight="30" Margin="320,0,0,0"/>
     </Grid>
 </Window>
